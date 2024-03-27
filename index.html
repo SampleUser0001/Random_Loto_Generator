@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Loto Generator</title>
+    <script>
+        function generatelotoNumbers(length, max) {
+            let numbers = [];
+            while(numbers.length < length) {
+                let number = Math.floor(Math.random() * max) + 1;
+                if(numbers.indexOf(number) === -1) {
+                    numbers.push(number);
+                }
+            }
+            return numbers;
+        }
+        function init() {
+            let loto_6_numbers = generatelotoNumbers(6, 43);
+            let loto_7_numbers = generatelotoNumbers(7, 37);
+
+            document.getElementById('loto_6').innerHTML = loto_6_numbers.join(', ');
+            document.getElementById('loto_7').innerHTML = loto_7_numbers.join(', ');
+        }
+
+    </script>
+</head>
+<body onload="init()"></body>
+    <h1>Random loto Generator</h1>
+    <h2>loto 6</h2>
+    <div id="loto_6"></div>
+    <h2>loto 7</h2>
+    <div id="loto_7"></div>
+</body>
+</html>
